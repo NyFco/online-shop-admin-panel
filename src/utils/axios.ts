@@ -1,5 +1,6 @@
 import axios from 'axios';
-const baseURL = 'https://nextjs-online-shop-396f2-default-rtdb.firebaseio.com';
+const baseURL =
+  'https://nextjs-online-shop-396f2-default-rtdb.firebaseio.com/data';
 
 const instance = axios.create({
   baseURL,

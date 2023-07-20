@@ -1,0 +1,18 @@
+* {
+  margin: 0 auto;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+body {
+  background-color: #ddd;
+}
+
+#login-form {
+  background-color: #aaa;
+  padding: 24px;
+  border-radius: 12px;
+  .ant-form-item-control-input {
+    width: 100%;
+  } 
+}
