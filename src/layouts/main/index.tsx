@@ -60,7 +60,11 @@ const MainLayout = ({ children }: { children: JSX.Element }) => {
             </p>
           </Menu>
         </Sider>
-        <Content style={{ marginLeft: 200 }}>{children}</Content>
+        <Content
+          style={{ marginLeft: 200, minHeight: '100vh', padding: '48px 24px' }}
+        >
+          {children}
+        </Content>
         {alertIsOpen && (
           <Alert
             message={
