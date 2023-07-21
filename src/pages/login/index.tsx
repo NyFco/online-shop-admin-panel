@@ -1,9 +1,28 @@
-import { Button, Form, Input } from 'antd';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Button, Form, Input, message } from 'antd';
 
 const { useForm } = Form;
 
 const LoginPage = () => {
   const [loginForm] = useForm();
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (localStorage.getItem('email')) {
+      navigate('/');
+    }
+  }, [navigate]);
+
+  const submitFormHandler = () => {
+    loginForm.validateFields().then((values) => {
+      localStorage.setItem('email', values.email);
+      message.success('You have logged in successfully!');
+      navigate('/');
+    });
+  };
+
   return (
     <div
       style={{
@@ -27,6 +46,7 @@ const LoginPage = () => {
           Admin Panel
         </h2>
         <Form.Item
+          name="email"
           rules={[
             {
               required: true,
@@ -41,6 +61,7 @@ const LoginPage = () => {
           <Input placeholder="Email address" size="large" />
         </Form.Item>
         <Form.Item
+          name="password"
           rules={[
             {
               required: true,
@@ -51,7 +72,11 @@ const LoginPage = () => {
           <Input.Password placeholder="Password" size="large" />
         </Form.Item>
         <div style={{ display: 'flex', justifyContent: 'center' }}>
-          <Button style={{ width: '100%' }} type="primary">
+          <Button
+            onClick={submitFormHandler}
+            style={{ width: '100%' }}
+            type="primary"
+          >
             Login
           </Button>
         </div>

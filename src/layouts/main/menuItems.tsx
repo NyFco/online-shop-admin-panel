@@ -1,4 +1,8 @@
-import { DashboardOutlined, ShopOutlined } from '@ant-design/icons';
+import {
+  DashboardOutlined,
+  LogoutOutlined,
+  ShopOutlined,
+} from '@ant-design/icons';
 
 const menuItems = [
   {
@@ -10,6 +14,12 @@ const menuItems = [
     label: 'Products',
     key: '/products',
     icon: <ShopOutlined />,
+  },
+  {
+    label: 'Logout',
+    key: 'logout',
+    icon: <LogoutOutlined />,
+    danger: true,
   },
 ];
 
