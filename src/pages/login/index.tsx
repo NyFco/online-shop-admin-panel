@@ -38,7 +38,6 @@ const LoginPage = () => {
         <h2
           style={{
             textAlign: 'center',
-            fontWeight: 400,
             marginBottom: 20,
             fontSize: 24,
           }}
