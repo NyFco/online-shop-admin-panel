@@ -1,6 +1,9 @@
+import { useState } from 'react';
 import { EditOutlined } from '@ant-design/icons';
 import { Button, Image, Table } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
+
+import AddProductModal from './AddProductModal';
 
 interface DataType {
   id: number;
@@ -93,8 +96,14 @@ const data: DataType[] = [
 ];
 
 const ProductsPage = () => {
+  const [addModalIsVisible, setAddModalIsVisible] = useState<boolean>(false);
+
   return (
     <>
+      <AddProductModal
+        open={addModalIsVisible}
+        setOpen={setAddModalIsVisible}
+      />
       <div
         style={{
           width: '100%',
@@ -103,7 +112,14 @@ const ProductsPage = () => {
           marginBottom: 24,
         }}
       >
-        <Button size="large" style={{ margin: 0 }} type="primary">
+        <Button
+          size="large"
+          style={{ margin: 0 }}
+          type="primary"
+          onClick={() => {
+            setAddModalIsVisible(true);
+          }}
+        >
           Add New Product
         </Button>
       </div>
