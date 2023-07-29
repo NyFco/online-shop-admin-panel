@@ -21,3 +21,11 @@ body {
     width: 100%;
   } 
 }
+
+#add-product-form {
+  .ant-form-item-row {
+    .ant-form-item-control-input {
+      margin: 0;
+    }
+  }
+}
