@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { EditOutlined } from '@ant-design/icons';
 import { Button, Image, Table } from 'antd';
-import type { ColumnsType } from 'antd/es/table';
 
 import AddProductModal from './AddProductModal';
+import EditProductModal from './EditProductModal';
 
 interface DataType {
   id: number;
@@ -12,53 +12,6 @@ interface DataType {
   price: number;
   img: string;
 }
-
-const columns: ColumnsType<DataType> = [
-  {
-    title: 'ID',
-    dataIndex: 'id',
-    key: 'id',
-    width: 75,
-    align: 'center',
-  },
-  {
-    title: 'Title',
-    dataIndex: 'title',
-    key: 'title',
-    ellipsis: true,
-  },
-  {
-    title: 'Description',
-    dataIndex: 'description',
-    key: 'description',
-    ellipsis: true,
-  },
-  {
-    title: 'Picture',
-    dataIndex: 'img',
-    key: 'img',
-    align: 'center',
-    render: (val) => <Image width={150} src={val} />,
-  },
-  {
-    title: 'Price',
-    dataIndex: 'price',
-    key: 'price',
-    align: 'center',
-    width: 100,
-    render: (val) => `$${val}`,
-  },
-  {
-    title: 'Edit',
-    align: 'center',
-    width: 100,
-    render: () => (
-      <Button>
-        <EditOutlined />
-      </Button>
-    ),
-  },
-];
 
 const data: DataType[] = [
   {
@@ -97,12 +50,19 @@ const data: DataType[] = [
 
 const ProductsPage = () => {
   const [addModalIsVisible, setAddModalIsVisible] = useState<boolean>(false);
+  const [editModalIsVisible, setEditModalIsVisible] = useState<boolean>(false);
+  const [editItemIdx, setEditItemIdx] = useState<number>(0);
 
   return (
     <>
       <AddProductModal
         open={addModalIsVisible}
         setOpen={setAddModalIsVisible}
+      />
+      <EditProductModal
+        open={editModalIsVisible}
+        setOpen={setEditModalIsVisible}
+        item={data[editItemIdx]}
       />
       <div
         style={{
@@ -123,7 +83,59 @@ const ProductsPage = () => {
           Add New Product
         </Button>
       </div>
-      <Table columns={columns} dataSource={data} />
+      <Table dataSource={data}>
+        <Table.Column
+          title="ID"
+          dataIndex="id"
+          key="id"
+          align="center"
+          width={75}
+        />
+        <Table.Column
+          title="Title"
+          dataIndex="title"
+          key="title"
+          ellipsis
+          width={200}
+        />
+        <Table.Column
+          title="Description"
+          dataIndex="description"
+          key="description"
+          ellipsis
+        />
+        <Table.Column
+          title="Picture"
+          dataIndex="img"
+          key="img"
+          align="center"
+          width={170}
+          render={(val) => <Image width={150} src={val} />}
+        />
+        <Table.Column
+          title="Price"
+          dataIndex="price"
+          key="price"
+          align="center"
+          width={100}
+          render={(val) => `$${val}`}
+        />
+        <Table.Column
+          title="Edit"
+          align="center"
+          width={100}
+          render={(_val, _rec, idx) => (
+            <Button
+              onClick={() => {
+                setEditItemIdx(idx);
+                setEditModalIsVisible(true);
+              }}
+            >
+              <EditOutlined />
+            </Button>
+          )}
+        />
+      </Table>
     </>
   );
 };
