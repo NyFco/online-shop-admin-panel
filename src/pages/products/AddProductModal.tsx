@@ -30,7 +30,7 @@ const AddProductModal = ({
         >
           <Input.TextArea />
         </Form.Item>
-        <Form.Item name="title" label="Title" rules={[{ required: true }]}>
+        <Form.Item name="price" label="Price" rules={[{ required: true }]}>
           <Input type="number" />
         </Form.Item>
       </Form>
