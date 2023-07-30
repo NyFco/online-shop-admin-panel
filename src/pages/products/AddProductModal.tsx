@@ -12,7 +12,7 @@ const AddProductModal = ({
   return (
     <Modal open={open} onCancel={() => setOpen(false)} closeIcon={false}>
       <Form
-        id="add-product-form"
+        className="modal-form"
         form={addForm}
         labelCol={{ span: 6 }}
         wrapperCol={{ span: 17, offset: 1 }}

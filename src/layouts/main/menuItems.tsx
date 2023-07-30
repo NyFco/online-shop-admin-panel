@@ -2,6 +2,7 @@ import {
   DashboardOutlined,
   LogoutOutlined,
   ShopOutlined,
+  ShoppingCartOutlined,
 } from '@ant-design/icons';
 
 const menuItems = [
@@ -14,6 +15,11 @@ const menuItems = [
     label: 'Products',
     key: '/products',
     icon: <ShopOutlined />,
+  },
+  {
+    label: 'Orders',
+    key: '/orders',
+    icon: <ShoppingCartOutlined />,
   },
   {
     label: 'Logout',

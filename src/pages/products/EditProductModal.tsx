@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Form, Input, Modal } from 'antd';
 
 const EditProductModal = ({
@@ -15,16 +16,19 @@ const EditProductModal = ({
     img: string;
   };
 }) => {
-  const [addForm] = Form.useForm();
+  const [editForm] = Form.useForm();
+
+  useEffect(() => {
+    editForm.setFieldsValue({ ...item });
+  }, [editForm, item]);
 
   return (
     <Modal open={open} onCancel={() => setOpen(false)} closeIcon={false}>
       <Form
-        id="add-product-form"
-        form={addForm}
+        className="modal-form"
+        form={editForm}
         labelCol={{ span: 6 }}
         wrapperCol={{ span: 17, offset: 1 }}
-        initialValues={item}
       >
         <Form.Item name="id" label="ID" rules={[{ required: true }]}>
           <Input type="number" disabled />
