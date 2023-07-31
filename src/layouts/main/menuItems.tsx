@@ -3,6 +3,7 @@ import {
   LogoutOutlined,
   ShopOutlined,
   ShoppingCartOutlined,
+  TeamOutlined,
   UnorderedListOutlined,
 } from '@ant-design/icons';
 
@@ -26,6 +27,11 @@ const menuItems = [
     label: 'Categories',
     key: '/categories',
     icon: <UnorderedListOutlined />,
+  },
+  {
+    label: 'Users',
+    key: '/users',
+    icon: <TeamOutlined />,
   },
   {
     label: 'Logout',
