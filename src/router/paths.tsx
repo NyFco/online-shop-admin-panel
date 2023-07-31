@@ -1,4 +1,10 @@
-import { Dashboard, LoginPage, OrdersPage, ProductsPage } from '../pages';
+import {
+  CategoriesPage,
+  Dashboard,
+  LoginPage,
+  OrdersPage,
+  ProductsPage,
+} from '../pages';
 
 export interface Path {
   path: string;
@@ -17,6 +23,10 @@ const paths: Path[] = [
   {
     path: '/orders',
     page: <OrdersPage />,
+  },
+  {
+    path: '/categories',
+    page: <CategoriesPage />,
   },
   {
     path: '/login',
