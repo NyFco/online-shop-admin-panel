@@ -4,6 +4,7 @@ import {
   LoginPage,
   OrdersPage,
   ProductsPage,
+  UsersPage,
 } from '../pages';
 
 export interface Path {
@@ -27,6 +28,10 @@ const paths: Path[] = [
   {
     path: '/categories',
     page: <CategoriesPage />,
+  },
+  {
+    path: '/users',
+    page: <UsersPage />,
   },
   {
     path: '/login',
