@@ -50,14 +50,14 @@ const OrdersPage = () => {
           key="purchaseId"
           align="center"
         />
-        <Table.Column // TODO: Add link to the user modal
+        <Table.Column
           title="User"
           dataIndex="userId"
           key="userId"
           align="center"
           render={(val) => <a>{val}</a>}
         />
-        <Table.Column // TODO: Add link to the product modal
+        <Table.Column
           title="Product"
           dataIndex="productId"
           key="productId"
