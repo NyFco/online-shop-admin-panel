@@ -18,7 +18,7 @@ const MainLayout = ({ children }: { children: JSX.Element }) => {
   const confirmLogoutHandler = () => {
     setAlertIsOpen(false);
     localStorage.removeItem('email');
-    navigate('login');
+    navigate('/login');
   };
 
   const onNav: (to: string) => void = (to = '/') => {
