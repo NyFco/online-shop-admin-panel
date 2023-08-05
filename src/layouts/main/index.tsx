@@ -3,12 +3,12 @@ import { Alert, Button, Layout, Menu } from 'antd';
 
 import { Auth } from '..';
 
-import menuItems from './menuItems';
 const { Sider, Content } = Layout;
 
 import { useState } from 'react';
 
 import pjson from '../../../package.json';
+import paths from '../../router/paths';
 
 const MainLayout = ({ children }: { children: JSX.Element }) => {
   const [alertIsOpen, setAlertIsOpen] = useState<boolean>(false);
@@ -22,7 +22,7 @@ const MainLayout = ({ children }: { children: JSX.Element }) => {
   };
 
   const onNav: (to: string) => void = (to = '/') => {
-    if (to === 'logout') {
+    if (to === '/login') {
       setAlertIsOpen(true);
     } else {
       navigate(to);
@@ -50,8 +50,8 @@ const MainLayout = ({ children }: { children: JSX.Element }) => {
             style={{ height: '100%' }}
             onSelect={(e) => onNav(e.key)}
           >
-            {menuItems.map((item) => (
-              <Menu.Item key={item.key} icon={item.icon} danger={item.danger}>
+            {paths.map((item) => (
+              <Menu.Item key={item.path} icon={item.icon} danger={item.danger}>
                 {item.label}
               </Menu.Item>
             ))}
