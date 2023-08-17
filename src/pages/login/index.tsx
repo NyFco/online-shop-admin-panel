@@ -4,6 +4,8 @@ import { Button, Form, Input, message } from 'antd';
 
 const { useForm } = Form;
 
+import bg from '../../assets/loginBG.png';
+
 const LoginPage = () => {
   const [loginForm] = useForm();
 
@@ -32,6 +34,8 @@ const LoginPage = () => {
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
+        background: `url(${bg}) center center no-repeat`,
+        backgroundSize: 'cover',
       }}
     >
       <Form name="login" form={loginForm} id="login-form">
@@ -57,7 +61,7 @@ const LoginPage = () => {
             },
           ]}
         >
-          <Input placeholder="Email address" size="large" />
+          <Input id="login-email" placeholder="Email address" size="large" />
         </Form.Item>
         <Form.Item
           name="password"
@@ -71,13 +75,7 @@ const LoginPage = () => {
           <Input.Password placeholder="Password" size="large" />
         </Form.Item>
         <div style={{ display: 'flex', justifyContent: 'center' }}>
-          <Button
-            onClick={submitFormHandler}
-            style={{ width: '100%' }}
-            type="primary"
-          >
-            Login
-          </Button>
+          <Button onClick={submitFormHandler}>Login</Button>
         </div>
       </Form>
     </div>
