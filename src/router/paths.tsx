@@ -7,19 +7,15 @@ import {
   UnorderedListOutlined,
 } from '@ant-design/icons';
 
-import {
-  CategoriesPage,
-  Dashboard,
-  LoginPage,
-  OrdersPage,
-  ProductsPage,
-  UsersPage,
-} from '../pages';
+import LoginPage from '../pages/login';
+
+// import { LoginPage } from '../pages';
 
 export interface Path {
   path: string;
   label: string;
-  page: JSX.Element;
+  address: string;
+  page?: JSX.Element;
   icon: JSX.Element;
   danger?: boolean;
 }
@@ -28,36 +24,37 @@ const paths: Path[] = [
   {
     path: '/',
     label: 'Dashboard',
-    page: <Dashboard />,
+    address: '../pages/dashboard',
     icon: <DashboardOutlined />,
   },
   {
     path: '/products',
     label: 'Products',
-    page: <ProductsPage />,
+    address: '../pages/products',
     icon: <ShopOutlined />,
   },
   {
     path: '/orders',
     label: 'Orders',
-    page: <OrdersPage />,
+    address: '../pages/orders',
     icon: <ShoppingCartOutlined />,
   },
   {
     path: '/categories',
     label: 'Categories',
-    page: <CategoriesPage />,
+    address: '../pages/categories',
     icon: <UnorderedListOutlined />,
   },
   {
     path: '/users',
     label: 'Users',
-    page: <UsersPage />,
+    address: '../pages/users',
     icon: <TeamOutlined />,
   },
   {
     path: '/login',
     label: 'Logout',
+    address: '',
     page: <LoginPage />,
     icon: <LogoutOutlined />,
     danger: true,
