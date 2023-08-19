@@ -7,7 +7,9 @@ import {
   UnorderedListOutlined,
 } from '@ant-design/icons';
 
-import { LoginPage } from '../pages';
+import LoginPage from '../pages/login';
+
+// import { LoginPage } from '../pages';
 
 export interface Path {
   path: string;
